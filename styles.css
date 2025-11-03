@@ -1,0 +1,41 @@
+.receipt-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #receiptPrint, #receiptPrint * {
+        visibility: visible;
+    }
+    #receiptPrint {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+    }
+    .receipt-actions {
+        display: none;
+    }
+}

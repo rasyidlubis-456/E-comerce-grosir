@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grosir Nusantara - Distributor Premium Terpercaya</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-left">
+                    <span>📞 0812-3456-7890</span>
+                    <span class="divider">|</span>
+                    <span>📧 info@grosirnusantara.com</span>
+                </div>
+                <div class="top-bar-right">
+                    <span>✨ Promo Spesial: Gratis Ongkir Min. 1 Juta</span>
+                </div>
+            </div>
+        </div>
+        <nav class="container">
+            <div class="logo">
+                <span class="logo-icon">👑</span>
+                <span class="logo-text">Grosir <span class="highlight">Nusantara</span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#categories">Kategori</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#features">Keunggulan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#" onclick="showOrderHistory(event)" class="nav-special">Riwayat</a></li>
+                <li>
+                    <div class="cart-icon" onclick="openCart()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                </li>
+            </ul>
+            <div class="user-info" id="userInfo" style="display: none;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span id="userName"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">✨ Distributor Terpercaya Sejak 2010</div>
+            <h1 class="hero-title">Solusi Grosir <span class="gradient-text">Premium</span> untuk Bisnis Anda</h1>
+            <p class="hero-subtitle">Dapatkan harga terbaik dengan kualitas terjamin untuk pembelian dalam jumlah besar</p>
+            <a href="#" class="btn btn-primary" onclick="checkUserIdentity(event)">
+                Mulai Belanja Sekarang
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+        <div class="hero-decoration">
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Kategori Lengkap</span>
+                <h2 class="section-title">Jelajahi Produk Berkualitas</h2>
+                <p class="section-subtitle">Pilihan lengkap untuk kebutuhan grosir Anda</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterProducts('minuman')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=400&h=300&fit=crop" alt="Minuman">
+                    </div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Minuman</h3>
+                        <p>Kopi, Teh & Minuman Premium</p>
+                        <div class="category-arrow">→</div>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterProducts('makanan')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=400&h=300&fit=crop" alt="Makanan">
+                    </div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Makanan</h3>
+                        <p>Snack & Biskuit Berkualitas</p>
+                        <div class="category-arrow">→</div>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterProducts('bumbu')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1596040033229-a0b3850261b5?w=400&h=300&fit=crop" alt="Bumbu">
+                    </div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Bumbu & Rempah</h3>
+                        <p>Rempah Tradisional Asli</p>
+                        <div class="category-arrow">→</div>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterProducts('sembako')">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop" alt="Sembako">
+                    </div>
+                    <div class="category-overlay"></div>
+                    <div class="category-content">
+                        <h3>Sembako</h3>
+                        <p>Kebutuhan Pokok Terlengkap</p>
+                        <div class="category-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Produk Pilihan</span>
+                <h2 class="section-title">Koleksi Produk Unggulan</h2>
+                <p class="section-subtitle">Harga spesial untuk pembelian grosir</p>
+            </div>
+            <div class="product-filter">
+                <button class="filter-btn active" onclick="filterProducts('semua')">Semua Produk</button>
+                <button class="filter-btn" onclick="filterProducts('minuman')">Minuman</button>
+                <button class="filter-btn" onclick="filterProducts('makanan')">Makanan</button>
+                <button class="filter-btn" onclick="filterProducts('bumbu')">Bumbu & Rempah</button>
+                <button class="filter-btn" onclick="filterProducts('sembako')">Sembako</button>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header light">
+                <span class="section-badge light">Mengapa Kami?</span>
+                <h2 class="section-title light">Keunggulan Layanan Kami</h2>
+                <p class="section-subtitle light">Komitmen kami untuk kepuasan pelanggan</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Harga Grosir Terbaik</h3>
+                    <p>Dapatkan harga termurah dengan sistem diskon bertingkat untuk pembelian dalam jumlah besar</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h3>100% Produk Original</h3>
+                    <p>Semua produk dijamin original dan berkualitas premium langsung dari distributor resmi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <h3>Pengiriman Cepat</h3>
+                    <p>Jaringan pengiriman luas ke seluruh Indonesia dengan tracking real-time</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Layanan 24/7</h3>
+                    <p>Customer service profesional siap membantu Anda kapan saja melalui berbagai channel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <span class="logo-icon">👑</span>
+                    <span class="logo-text">Grosir <span class="highlight">Nusantara</span></span>
+                </div>
+                <p>Distributor grosir terpercaya sejak 2010. Melayani pembelian retail dan grosir ke seluruh Indonesia dengan standar kualitas premium.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#categories">Kategori Produk</a></li>
+                    <li><a href="#products">Produk Unggulan</a></li>
+                    <li><a href="#features">Keunggulan Kami</a></li>
+                    <li><a href="#contact">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <ul class="contact-list">
+                    <li>
+                        <span class="icon">📍</span>
+                        <span>Jl. Raya Industri No. 123, Jakarta Selatan, Indonesia</span>
+                    </li>
+                    <li>
+                        <span class="icon">📞</span>
+                        <span>0812-3456-7890</span>
+                    </li>
+                    <li>
+                        <span class="icon">📧</span>
+                        <span>info@grosirnusantara.com</span>
+                    </li>
+                    <li>
+                        <span class="icon">⏰</span>
+                        <span>Senin - Sabtu: 08:00 - 17:00 WIB</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Grosir Nusantara. All Rights Reserved. Made with ❤️ in Indonesia</p>
+        </div>
+    </footer>
+
+    <!-- Modal Identitas -->
+    <div class="modal" id="identityModal">
+        <div class="modal-content premium">
+            <div class="modal-header">
+                <div>
+                    <h2>✨ Selamat Datang</h2>
+                    <p class="modal-subtitle">Silakan lengkapi identitas Anda untuk melanjutkan</p>
+                </div>
+            </div>
+            <form id="identityForm">
+                <div class="form-group">
+                    <label>Nama Lengkap *</label>
+                    <input type="text" id="customerName" required placeholder="Masukkan nama lengkap Anda">
+                </div>
+                <div class="form-group">
+                    <label>Nomor Telepon *</label>
+                    <input type="tel" id="customerPhone" required placeholder="08xx-xxxx-xxxx">
+                </div>
+                <div class="form-group">
+                    <label>Alamat Lengkap *</label>
+                    <textarea id="customerAddress" required placeholder="Masukkan alamat lengkap untuk pengiriman"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Lanjutkan Belanja
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Keranjang -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content premium">
+            <div class="modal-header">
+                <h2>🛒 Keranjang Belanja</h2>
+                <span class="close-modal" onclick="closeCart()">&times;</span>
+            </div>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal">Total: Rp 0</div>
+            <button class="btn btn-primary" onclick="processCheckout()" style="width: 100%; margin-top: 20px;">
+                Proses Checkout
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal Riwayat -->
+    <div class="modal" id="historyModal">
+        <div class="modal-content premium" style="max-width: 900px;">
+            <div class="modal-header">
+                <h2>📜 Riwayat Pemesanan</h2>
+                <span class="close-modal" onclick="closeHistory()">&times;</span>
+            </div>
+            <div id="historyItems"></div>
+        </div>
+    </div>
+
+    <!-- Modal Struk -->
+    <div class="modal" id="receiptModal">
+        <div class="modal-content premium" style="max-width: 600px;">
+            <div class="modal-header">
+                <h2>🧾 Struk Pembelian</h2>
+                <span class="close-modal" onclick="closeReceipt()">&times;</span>
+            </div>
+            <div id="receiptContent"></div>
+            <div class="receipt-actions">
+                <button class="btn btn-primary" onclick="printReceipt()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
+                        <rect x="6" y="14" width="12" height="8"/>
+                    </svg>
+                    Cetak Struk
+                </button>
+                <button class="btn btn-secondary" onclick="closeReceipt()">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Logout -->
+    <div class="modal" id="logoutModal">
+        <div class="modal-content premium" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>👋 Konfirmasi Logout</h2>
+            </div>
+            <div style="text-align: center; padding: 20px 0;">
+                <p>Apakah Anda yakin ingin keluar dari akun?</p>
+            </div>
+            <div style="display: flex; gap: 15px;">
+                <button class="btn btn-secondary" onclick="closeLogoutModal()" style="flex: 1;">
+                    Batal
+                </button>
+                <button class="btn btn-primary" onclick="logoutUser()" style="flex: 1;">
+                    Ya, Logout
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pembayaran -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content premium" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2>💳 Metode Pembayaran</h2>
+                <span class="close-modal" onclick="closePaymentModal()">&times;</span>
+            </div>
+            <div class="payment-methods">
+                <div class="payment-option" onclick="selectPayment('ewallet')">
+                    <input type="radio" name="payment" id="ewallet" value="ewallet">
+                    <label for="ewallet">
+                        <div class="payment-icon">📱</div>
+                        <div class="payment-info">
+                            <strong>E-Wallet</strong>
+                            <span>Gopay, OVO, Dana, ShopeePay</span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('bank')">
+                    <input type="radio" name="payment" id="bank" value="bank">
+                    <label for="bank">
+                        <div class="payment-icon">🏦</div>
+                        <div class="payment-info">
+                            <strong>Transfer Bank</strong>
+                            <span>BCA, BNI, Mandiri, BRI</span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="payment-option" onclick="selectPayment('cod')">
+                    <input type="radio" name="payment" id="cod" value="cod">
+                    <label for="cod">
+                        <div class="payment-icon">🚚</div>
+                        <div class="payment-info">
+                            <strong>COD (Cash on Delivery)</strong>
+                            <span>Bayar saat barang diterima</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            
+            <div id="paymentDetails" style="display: none; margin-top: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <!-- Payment details will be populated dynamically -->
+            </div>
+            
+            <button class="btn btn-primary" onclick="processPayment()" style="width: 100%; margin-top: 20px;">
+                Lanjutkan Pembayaran
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
